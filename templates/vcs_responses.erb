@@ -6,7 +6,7 @@
 
   def vcs_scalar_opt(opt)
     if val = scope["::veritas::vcs::#{opt}"]
-      return "$CFG{vcs_#{opt}}=\"#{val}\""
+      return "$CFG{vcs_#{opt}}=\"#{val}\";"
     end
   end
 -%>
