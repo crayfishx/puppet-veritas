@@ -1,0 +1,65 @@
+<%
+  # If we do not have a clusterid defined, try and generate it randomly using the 
+  # sum of the cluster name
+  my_cluster = @clusterid
+  my_cluster ||= @clustername.sum
+
+  def vcs_scalar_opt(opt)
+    if val = scope["::veritas::vcs::#{opt}"]
+      return "$CFG{vcs_#{opt}}=\"#{val}\""
+    end
+  end
+-%>
+
+#
+# Configuration Values:
+#
+our %CFG;
+
+$CFG{accepteula}=1;
+$CFG{lltoverudp}="<%= @lltoverudp %>";
+$CFG{opt}{configure}=1;
+$CFG{opt}{install}=1;
+$CFG{opt}{installrecpkgs}=<%= @installrecpkgs %>;
+$CFG{opt}{updatekeys}=<%= @updatekeys %>;
+$CFG{opt}{vxkeyless}=<%= @vxkeyless %>;
+$CFG{prod}="<%= @prod %>";
+$CFG{systems}=[ qw( <%= @target_systems.map { |s| s.keys }.flatten.join(' ') %>) ];
+$CFG{vcs_clusterid}=<%= my_cluster %>;
+$CFG{vcs_csgnic}{all}="<%= @csgnic %>";
+
+<%= vcs_scalar_opt('allowcomms') %>
+<%= vcs_scalar_opt('clustername') %>
+<%= vcs_scalar_opt('csgnetmask') %>
+<%= vcs_scalar_opt('csgvip') %>
+<%= vcs_scalar_opt('vcs_eat_security') %>
+<%= vcs_scalar_opt('eat_security_fips') %>
+<%= vcs_scalar_opt('gconetmask') %>
+<%= vcs_scalar_opt('gconic') %>
+<%= vcs_scalar_opt('gcovip') %>
+<%= vcs_scalar_opt('securegco') %>
+<%= vcs_scalar_opt('smtpserv') %>
+<%= vcs_scalar_opt('snmpcons') %>
+<%= vcs_scalar_opt('snmpcsev') %>
+<%= vcs_scalar_opt('snmpport') %>
+<%= vcs_scalar_opt('userenpw') %>
+<%= vcs_scalar_opt('username') %>
+<%= vcs_scalar_opt('userpriv') %>
+<%
+   @target_systems.length.times do |link|
+     @target_systems.each do |sys|
+-%>
+$CFG{vcs_lltlink<%= link+1%>}{"<%= sys.keys[0] %>"}="<%= sys.values[0]['heartbeat_links'][link] %>";
+<%   end -%>
+<% end -%>
+
+<% @target_systems.each do |sys| -%>
+$CFG{vcs_lltlinklowpri1}{"<%=sys.keys[0] %>"}="<%= sys.values[0]['lopri_link'] %>";
+<% end -%>
+
+
+$CFG{vcs_smtprecp}=[ qw(<%= @smtprecp %>) ];
+$CFG{vcs_smtprsev}=[ qw(<%= @smtprsev %>) ];
+$CFG{vcs_smtpserver}="<%= @smtpserver %>";
+
+1;
