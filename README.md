@@ -1,13 +1,13 @@
 # puppet-veritas
 
-This module manages the installation and initial configuration of Veritas products.  Curently only VCS (Veritas Cluster Manager) is supported, but the goal is to use the same framework to install other applications from the same application suite.
+This module manages the installation and initial configuration of Veritas products.  Curently only VCS (Veritas Cluster Server) is supported, but the goal is to use the same framework to install other applications from the same application suite.
 
 
 ## VCS
 
 ### Pre-installation requirements ###
 
-VCS is shipped as a tarball containing RPM packages and an installer tool.  There is also a supported method of installing the relevant RPM's from YUM and using the provided configuration tool and a respone file to finish installation and configure the system.  This module assumed you have already copied the RPM's from the tarball into their own YUM repository, In order to do this follow steps 1 thru 3 of the guide; [Installing Veritas Cluster Server using yum](https://sort.symantec.com/public/documents/vcs/6.0/linux/productguides/html/vcs_install/ch16s05.htm) (Adding an RPM group is optional and does not affect this module).  You should not install the modules.
+VCS is shipped as a tarball containing RPM packages and an installer tool.  There is also a supported method of installing the relevant RPM's from YUM and using the provided configuration tool and a resposne file to finish installation and configure the system.  This module assumed you have already copied the RPM's from the tarball into their own YUM repository. In order to do this, follow steps 1 through 3 of the guide; [Installing Veritas Cluster Server using yum](https://sort.symantec.com/public/documents/vcs/6.0/linux/productguides/html/vcs_install/ch16s05.htm) (Adding an RPM group is optional and does not affect this module).  You should not install the modules.
 
 ### Pre-requisiste packages ###
 
