@@ -63,9 +63,24 @@ class veritas::vcs (
     content => template('veritas/vcs_responses.erb'),
   }
 
-
-  Package <| tag == 'vcs_cluster' |> ->
-  class { 'veritas::vcs::install': }
+  Package <| title == 'VRTSperl' |> ->
+  Package <| title == 'VRTSvlic' |> ->
+  Package <| title == 'VRTSspt' |> ->
+  Package <| title == 'VRTSllt' |> ->
+  Package <| title == 'VRTSgab' |> ->
+  Package <| title == 'VRTSvxfen' |> ->
+  Package <| title == 'VRTSamf' |> ->
+  Package <| title == 'VRTSvcs' |> ->
+  Package <| title == 'VRTScps' |> ->
+  Package <| title == 'VRTSvcsag' |> ->
+  Package <| title == 'VRTSvcsdr' |> ->
+  Package <| title == 'VRTSvcsea' |> ->
+  Package <| title == 'VRTSsfmh' |> ->
+  Package <| title == 'VRTSvbs' |> ->
+  Package <| title == 'VRTSvcswiz' |> ->
+  Package <| title == 'VRTSsfcpi62' |>->
+  class { 'veritas::vcs::install': }->
+  class { 'veritas::vcs::service': }
 
 }
 

@@ -5,8 +5,8 @@
   my_cluster ||= @clustername.sum
 
   def vcs_scalar_opt(opt)
-    if val = scope["::veritas::vcs::#{opt}"]
-      return "$CFG{vcs_#{opt}}=\"#{val}\""
+    if val = instance_variable_get("@#{opt}")
+      return "$CFG{vcs_#{opt}}=\"#{val}\";"
     end
   end
 -%>

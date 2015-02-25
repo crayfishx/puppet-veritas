@@ -6,28 +6,27 @@
 #
 #  
 class veritas::packages {
+
   @package { [
     'VRTSperl',
     'VRTSvlic',
+    'VRTSspt',
     'VRTSllt',
     'VRTSgab',
     'VRTSvxfen',
     'VRTSamf',
     'VRTSvcs',
+    'VRTScps',
     'VRTSvcsag',
+    'VRTSvcsdr',
+    'VRTSvcsea',
     'VRTSsfmh',
+    'VRTSvbs',
     'VRTSvcswiz',
+    'VRTSsfcpi62',
   ]:
     ensure => installed,
-    tag    => [ 'vcs_cluster', 'veritas' ],
-    before => Package['VRTSsfcpi62'],
-  }
-
-  package { 'VRTSsfcpi62':
-    ensure => 'installed',
     tag    => [ 'vcs_cluster', 'veritas' ],
   }
 
 }
-
-
