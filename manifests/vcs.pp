@@ -12,7 +12,6 @@ class veritas::vcs (
   $eat_security =    $::veritas::vcs::params::eat_security,
   $answer_file =     $::veritas::vcs::params::answer_file,
   $install_script =  $::veritas::vcs::params::install_script,
-  $version =         $::veritas::vcs::params::version,
   $eat_security=     $::veritas::vcs::params::eat_security,
   $systems =         [],
   $heartbeat_links = [],
@@ -39,6 +38,7 @@ class veritas::vcs (
   $userpriv =        undef,
 ) inherits veritas::vcs::params {
 
+  include veritas
 
   if count($systems) > 0 {
     if (count($heartbeat_links) > 0) or $lopri_link {

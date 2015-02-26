@@ -36,9 +36,9 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 # Set global vars here
-class veritas {
+class veritas (
+  $version = $::veritas::params::version
+) inherits veritas::params {
 
- # Not a lot to see here yet 
-
-
+  $version_condensed=inline_template('<%= @version.gsub(/[^0-9a-z ]/i, "") %>')
 }

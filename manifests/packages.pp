@@ -7,6 +7,8 @@
 #  
 class veritas::packages {
 
+  include veritas
+
   @package { [
     'VRTSperl',
     'VRTSvlic',
@@ -23,7 +25,7 @@ class veritas::packages {
     'VRTSsfmh',
     'VRTSvbs',
     'VRTSvcswiz',
-    'VRTSsfcpi62',
+    "VRTSsfcpi${::veritas::version_condensed}",
   ]:
     ensure => installed,
     tag    => [ 'vcs_cluster', 'veritas' ],
