@@ -16,7 +16,7 @@ end
 Facter.add(:vcs_clustername) do
   setcode do
     if Facter.value(:hacluspath)
-      clustername = Facter::Util::Resolution.exec(Facter.value(:hacluspath) + ' -list | tr [:lower:] [:upper:]')
+      clustername = Facter::Util::Resolution.exec(Facter.value(:hacluspath) + ' -list | tr "[:lower:]" "[:upper:]"')
       clustername
     else
       false
