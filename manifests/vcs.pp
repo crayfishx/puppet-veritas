@@ -73,11 +73,11 @@ class veritas::vcs (
   Package <| title == 'VRTSvcs' |> ->
   Package <| title == 'VRTScps' |> ->
   Package <| title == 'VRTSvcsag' |> ->
-  Package <| title == 'VRTSvcsdr' |> ->
+#  Package <| title == 'VRTSvcsdr' |> ->
   Package <| title == 'VRTSvcsea' |> ->
   Package <| title == 'VRTSsfmh' |> ->
   Package <| title == 'VRTSvbs' |> ->
-  Package <| title == 'VRTSvcswiz' |> ->
+#  Package <| title == 'VRTSvcswiz' |> ->
   Package <| title == 'VRTSsfcpi62' |>->
   class { 'veritas::vcs::install': }->
   class { 'veritas::vcs::service': }
