@@ -7,7 +7,7 @@
 #  
 class veritas::packages {
 
-  include veritas
+  include ::veritas
 
   @package { [
     'VRTSperl',

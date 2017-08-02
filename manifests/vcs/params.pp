@@ -1,6 +1,8 @@
+# Parameters for veritas
+#
 class veritas::vcs::params {
 
-  include veritas
+  include ::veritas
 
   $lltoverudp='0'
   $installrecpkgs='1'
@@ -14,9 +16,3 @@ class veritas::vcs::params {
   $answer_file='/var/tmp/answers_veritas_vcs.txt'
   $install_script="/opt/VRTS/install/installvcs${::veritas::version_condensed}"
 }
-
-
-
-
-  
-  

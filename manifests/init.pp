@@ -36,6 +36,7 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 # Set global vars here
+#
 class veritas (
   $version = $::veritas::params::version
 ) inherits veritas::params {

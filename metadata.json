@@ -1,6 +1,6 @@
 {
   "name": "crayfishx-veritas",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Craig Dunn",
   "license": "Apache-2.0",
   "summary": "Install and configure Veritas products (VCS)",
